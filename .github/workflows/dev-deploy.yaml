@@ -35,5 +35,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/lambda-numpy:main-${GITHUB_SHA::7}-amd64
+          tags: "${{ steps.login-ecr.outputs.registry }}/lambda-numpy:main-${GITHUB_SHA::7}-amd64"
           platforms: linux/amd64
