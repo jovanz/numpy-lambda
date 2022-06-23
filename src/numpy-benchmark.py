@@ -7,18 +7,19 @@ import numpy as np
 from time import time
 from datetime import datetime
 
-# Let's take the randomness out of random numbers (for reproducibility)
-np.random.seed(0)
 
-size = 4096
-A, B = np.random.random((size, size)), np.random.random((size, size))
-C, D = np.random.random((size * 128,)), np.random.random((size * 128,))
-E = np.random.random((int(size / 2), int(size / 4)))
-F = np.random.random((int(size / 2), int(size / 2)))
-F = np.dot(F, F.T)
-G = np.random.random((int(size / 2), int(size / 2)))
 
 def handler(event, context):
+  # Let's take the randomness out of random numbers (for reproducibility)
+  np.random.seed(0)
+
+  size = 4096
+  A, B = np.random.random((size, size)), np.random.random((size, size))
+  C, D = np.random.random((size * 128,)), np.random.random((size * 128,))
+  E = np.random.random((int(size / 2), int(size / 4)))
+  F = np.random.random((int(size / 2), int(size / 2)))
+  F = np.dot(F, F.T)
+  G = np.random.random((int(size / 2), int(size / 2)))
   # Matrix multiplication
   N = 20
   start_time = datetime.now()
