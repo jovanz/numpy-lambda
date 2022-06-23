@@ -31,9 +31,16 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
-      - name: Docker build
+      - name: Docker build for amd64
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: "${{ steps.login-ecr.outputs.registry }}/lambda-numpy:amd64"
           platforms: linux/amd64
+
+      - name: Docker build for arm64
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: "${{ steps.login-ecr.outputs.registry }}/lambda-numpy:arm64"
+          platforms: linux/arm64
